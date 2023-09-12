@@ -9,6 +9,18 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.(jpg|png|svg|gif|woff|woff2|eot|ttf)$/,
+                loader: 'file-loader',
+                options: {
+                    name: 'assets/[path][name].[ext]',
+                },
+            },
+            // {
+            //     type: 'assets/resource',
+            //     use: 'assets/resource',
+            //     test: /\.(jpg|png|svg|gif|woff|woff2|eot|ttf)$/
+            // },
+            {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
@@ -26,11 +38,6 @@ module.exports = {
                 }],
                 exclude: /node_modules/
             },
-            {
-                type: 'assets/resource',
-                use: 'assets/resource',
-                test: /\.(jpg|png|svg|gif|woff|woff2|eot|ttf)$/
-            }
         ]
     },
     plugins: [
